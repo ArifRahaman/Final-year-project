@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Register - EduCards</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-panel-elevated {
+            background-color: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 0 20px rgba(124, 58, 237, 0.05);
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #7c3aed 0%, #03b5d3 100%);
+        }
+
+        .input-glass {
+            background-color: #181c22;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #dfe2eb;
+            transition: all 0.3s ease;
+        }
+
+        .input-glass:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed 0%, #03b5d3 100%);
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+        }
+
+        /* Subtle background pattern */
+        body {
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(124, 58, 237, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(3, 181, 211, 0.1), transparent 25%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "on-error": "#690005",
+                            "tertiary-container": "#007650",
+                            "error": "#ffb4ab",
+                            "on-tertiary-container": "#76ffc2",
+                            "on-primary-fixed-variant": "#5a00c6",
+                            "tertiary-fixed": "#6ffbbe",
+                            "surface-bright": "#353940",
+                            "on-secondary-container": "#00424e",
+                            "tertiary-fixed-dim": "#4edea3",
+                            "surface-container": "#1c2026",
+                            "tertiary": "#4edea3",
+                            "on-tertiary-fixed-variant": "#005236",
+                            "surface-container-high": "#262a31",
+                            "secondary-container": "#03b5d3",
+                            "on-background": "#dfe2eb",
+                            "secondary": "#4cd7f6",
+                            "background": "#10141a",
+                            "secondary-fixed-dim": "#4cd7f6",
+                            "surface": "#10141a",
+                            "inverse-primary": "#732ee4",
+                            "error-container": "#93000a",
+                            "on-tertiary": "#003824",
+                            "on-primary": "#3f008e",
+                            "outline": "#958da1",
+                            "inverse-surface": "#dfe2eb",
+                            "on-primary-container": "#ede0ff",
+                            "on-surface": "#dfe2eb",
+                            "on-secondary-fixed-variant": "#004e5c",
+                            "outline-variant": "#4a4455",
+                            "surface-container-lowest": "#0a0e14",
+                            "on-secondary": "#003640",
+                            "primary-container": "#7c3aed",
+                            "surface-container-highest": "#31353c",
+                            "on-error-container": "#ffdad6",
+                            "on-tertiary-fixed": "#002113",
+                            "primary-fixed-dim": "#d2bbff",
+                            "surface-variant": "#31353c",
+                            "primary": "#d2bbff",
+                            "primary-fixed": "#eaddff",
+                            "inverse-on-surface": "#2d3137",
+                            "on-surface-variant": "#ccc3d8",
+                            "surface-tint": "#d2bbff",
+                            "on-secondary-fixed": "#001f26",
+                            "surface-container-low": "#181c22",
+                            "on-primary-fixed": "#25005a",
+                            "surface-dim": "#10141a",
+                            "secondary-fixed": "#acedff"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "margin-desktop": "64px",
+                            "base": "8px",
+                            "margin-mobile": "16px",
+                            "gutter": "24px",
+                            "max-width": "1280px"
+                    },
+                    "fontFamily": {
+                            "headline-lg": ["Inter"],
+                            "body-lg": ["Inter"],
+                            "headline-md": ["Inter"],
+                            "label-md": ["Inter"],
+                            "display": ["Inter"],
+                            "label-sm": ["Inter"],
+                            "headline-lg-mobile": ["Inter"],
+                            "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                            "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                            "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                            "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                            "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                            "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                            "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex items-center justify-center p-margin-mobile md:p-margin-desktop font-body-md overflow-x-hidden relative">
+<!-- Top Left Brand -->
+<div class="absolute top-margin-mobile left-margin-mobile md:top-margin-desktop md:left-margin-desktop">
+<a class="flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-display text-headline-md font-bold text-primary">EduCards</span>
+</a>
+</div>
+<!-- Main Registration Container -->
+<main class="w-full max-w-md relative z-10">
+<!-- Registration Card -->
+<div class="glass-panel-elevated rounded-xl p-8 md:p-10 flex flex-col gap-8 relative overflow-hidden">
+<!-- Subtle Top Glow -->
+<div class="absolute top-0 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-50"></div>
+<!-- Header -->
+<div class="text-center space-y-2">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Create Account</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Join the next generation of learning.</p>
+</div>
+<!-- Registration Form -->
+<form class="flex flex-col gap-6" onsubmit="event.preventDefault();">
+<!-- Role Selector (Teacher/Student) -->
+<div class="glass-panel p-1 rounded-lg flex items-center justify-between relative overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-low opacity-50 pointer-events-none"></div>
+<label class="flex-1 text-center relative z-10 cursor-pointer">
+<input checked="" class="sr-only peer" name="role" type="radio" value="student"/>
+<div class="py-2 px-4 rounded-md font-label-md text-label-md text-on-surface-variant peer-checked:bg-white/10 peer-checked:text-on-surface peer-checked:shadow-sm transition-all duration-300 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">face</span>
+                            Student
+                        </div>
+</label>
+<label class="flex-1 text-center relative z-10 cursor-pointer">
+<input class="sr-only peer" name="role" type="radio" value="teacher"/>
+<div class="py-2 px-4 rounded-md font-label-md text-label-md text-on-surface-variant peer-checked:bg-white/10 peer-checked:text-on-surface peer-checked:shadow-sm transition-all duration-300 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">local_library</span>
+                            Teacher
+                        </div>
+</label>
+</div>
+<!-- Input Fields Group -->
+<div class="flex flex-col gap-5">
+<!-- Name Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant pl-1" for="fullName">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">person</span>
+<input class="w-full input-glass rounded-lg py-3 pl-10 pr-4 font-body-md text-body-md placeholder:text-outline-variant" id="fullName" placeholder="Jane Doe" required="" type="text"/>
+</div>
+</div>
+<!-- Email Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant pl-1" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">mail</span>
+<input class="w-full input-glass rounded-lg py-3 pl-10 pr-4 font-body-md text-body-md placeholder:text-outline-variant" id="email" placeholder="jane@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant pl-1" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">lock</span>
+<input class="w-full input-glass rounded-lg py-3 pl-10 pr-10 font-body-md text-body-md placeholder:text-outline-variant" id="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<button class="btn-primary w-full py-3.5 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 mt-2" type="submit">
+<span>Register</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Links -->
+<div class="text-center pt-2 border-t border-white/5">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Already have an account?
+                    <a class="text-secondary hover:text-secondary-fixed-dim transition-colors font-label-md text-label-md underline underline-offset-4" href="#">Sign in</a>
+</p>
+</div>
+</div>
+</main>
+<!-- Bottom Right Decoration (Subtle) -->
+<div class="fixed bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none -z-10 translate-x-1/3 translate-y-1/3"></div>
+</body></html>

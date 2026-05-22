@@ -1,0 +1,219 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Stitch-style ambient glow orbs */
+.auth-bg-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.auth-bg-orbs .orb-1 {
+  width: 60vw;
+  height: 60vw;
+  background: rgba(124, 58, 237, 0.05);
+  top: -20%;
+  right: -10%;
+  filter: blur(120px);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.auth-bg-orbs .orb-2 {
+  width: 50vw;
+  height: 50vw;
+  background: rgba(3, 181, 211, 0.05);
+  bottom: -20%;
+  left: -10%;
+  filter: blur(100px);
+  border-radius: 50%;
+  position: absolute;
+}
+
+/* Auth card — wider for register, snug for login */
+.auth-card {
+  width: 100%;
+  max-width: 560px;
+  padding: var(--space-2xl) var(--space-2xl) var(--space-xl);
+  animation: fadeInUp 0.5s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.auth-logo {
+  color: var(--accent-primary-text);
+  margin-bottom: var(--space-md);
+}
+
+.auth-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+  letter-spacing: -0.02em;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: var(--gradient-text);
+}
+
+.auth-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Input wrapper must stretch full width in grid cells */
+.input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-with-icon {
+  padding-left: 40px !important;
+}
+
+.input-toggle {
+  position: absolute;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  z-index: 1;
+}
+
+.input-toggle:hover {
+  color: var(--text-primary);
+}
+
+/* Ensure all inputs stretch to fill their container */
+.auth-form .form-input {
+  width: 100%;
+}
+
+/* Two-column row for password + confirm, role + institution */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  align-items: start;
+}
+
+/* Stitch-style role toggle pill */
+.role-selector {
+  display: flex;
+  gap: 0;
+  background: var(--surface-high);
+  border-radius: var(--radius-full);
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+}
+
+.role-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: all 200ms ease;
+  text-align: center;
+  color: var(--text-secondary);
+  background: transparent;
+  white-space: nowrap;
+}
+
+.role-option input {
+  display: none;
+}
+
+.role-option:hover {
+  color: var(--text-primary);
+}
+
+.role-option.active {
+  background: var(--accent-primary-container);
+  color: white;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+}
+
+/* Sign In / Create Account button */
+.auth-form .btn-primary.btn-lg.w-full {
+  background: var(--gradient-primary);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 1.5rem;
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-sm);
+}
+
+.auth-form .btn-primary.btn-lg.w-full:hover:not(:disabled) {
+  box-shadow: var(--gradient-btn-hover-glow);
+  transform: translateY(-1px);
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: var(--space-lg);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.auth-switch a {
+  color: var(--accent-cyan);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.auth-switch a:hover {
+  color: var(--accent-primary-text);
+}
+
+@media (max-width: 600px) {
+  .auth-card {
+    padding: var(--space-lg);
+    max-width: 100%;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-title {
+    font-size: var(--font-size-2xl);
+  }
+}

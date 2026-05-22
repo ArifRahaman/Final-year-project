@@ -1,0 +1,334 @@
+.detail-page {
+  padding: calc(var(--navbar-height) + var(--space-xl)) var(--space-lg) var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease;
+}
+
+.detail-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.detail-header {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.detail-header-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.detail-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.detail-desc {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.detail-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.detail-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.detail-creator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.detail-creator-name {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  display: block;
+}
+
+.detail-creator-role {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.detail-stats-row {
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.detail-stats-row span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.detail-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* Request Panel */
+.request-panel {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.request-panel h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+.request-panel p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* Requests Panel */
+.requests-panel {
+  padding: var(--space-xl);
+}
+
+.requests-panel h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.request-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  background: rgba(28, 32, 38, 0.5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  transition: all var(--transition-base);
+}
+
+.request-item:hover {
+  background: var(--surface-container);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.request-student {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  flex: 1;
+}
+
+.request-student strong {
+  display: block;
+  font-size: var(--font-size-sm);
+}
+
+.request-message {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.request-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+/* Stitch-style approve/reject circular buttons */
+.request-actions .btn-success {
+  border-radius: var(--radius-full);
+}
+
+.request-actions .btn-danger {
+  border-radius: var(--radius-full);
+}
+
+/* Resources */
+.resources-section {
+  padding-top: 0.25rem;
+}
+
+.resources-section h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.resources-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.resource-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  transition: all var(--transition-base);
+}
+
+.resource-item:hover {
+  background: var(--glass-bg-hover);
+}
+
+.resource-icon {
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.resource-info {
+  flex: 1;
+}
+
+.resource-name {
+  display: block;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
+
+.resource-meta {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.text-content {
+  margin-top: var(--space-lg);
+  padding: var(--space-xl);
+}
+
+.text-content h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.text-content-body {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* Chat FAB — Stitch gradient style */
+.chat-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 14px 24px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  box-shadow: var(--gradient-btn-hover-glow);
+  z-index: 40;
+  animation: fadeInUp 0.5s ease;
+}
+
+.chat-fab:hover {
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
+}
+
+.chat-fab span {
+  font-weight: 600;
+}
+
+/* ---- Tab navigation (Stitch style) ---- */
+.detail-tabs {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.detail-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.detail-tab:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.detail-tab.active {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.25), rgba(76, 215, 246, 0.15));
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Discussion locked hint */
+.discussion-locked-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
