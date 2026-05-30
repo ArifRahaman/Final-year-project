@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { cardsAPI } from '../services/api';
 import type { Card } from '../types';
 import CardPreview from '../components/Cards/CardPreview';
-import { Search, BookOpen, Filter } from 'lucide-react';
+import { Search, BookOpen } from 'lucide-react';
 import toast from 'react-hot-toast';
 import './BrowsePage.css';
 

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '../../contexts/AuthContext';
 import { quizAPI } from '../../services/api';
-import type { Quiz, QuizQuestion, QuizAttempt } from '../../types';
+import type { Quiz, QuizAttempt } from '../../types';
 import { Trophy, Plus, Trash2, CheckCircle2, XCircle, ChevronRight, BarChart2, BookOpen } from 'lucide-react';
 import toast from 'react-hot-toast';
 import './QuizPanel.css';
@@ -20,7 +19,6 @@ interface DraftQuestion {
 const emptyQuestion = (): DraftQuestion => ({ text: '', options: ['', ''], correctIndex: 0 });
 
 export default function QuizPanel({ cardId, accessLevel }: Props) {
-  const { user } = useAuth();
   const isTeacher = accessLevel === 'owner';
 
   const [quiz, setQuiz] = useState<Quiz | null>(null);

@@ -1,0 +1,323 @@
+.db-lab-page {
+  padding: calc(var(--navbar-height) + var(--space-xl)) var(--space-lg) var(--space-xl);
+  max-width: 1280px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease;
+}
+
+.db-back-link {
+  margin-bottom: var(--space-md);
+}
+
+.db-lab-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-xl);
+  padding: var(--space-2xl);
+  margin-bottom: var(--space-xl);
+}
+
+.db-lab-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--accent-emerald);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.db-lab-hero h1 {
+  font-size: var(--font-size-hero);
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-sm);
+}
+
+.db-lab-hero p {
+  max-width: 720px;
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+}
+
+.db-lab-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: var(--space-md);
+  min-width: 320px;
+}
+
+.db-lab-summary div {
+  padding: var(--space-md);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.db-lab-summary span {
+  display: block;
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.db-lab-summary strong {
+  color: var(--accent-emerald);
+  font-size: var(--font-size-2xl);
+}
+
+.db-content-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.db-theory,
+.db-simulator,
+.db-table-card,
+.db-result-card,
+.db-viva-section {
+  padding: var(--space-xl);
+}
+
+.db-theory h2 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.db-theory h2:not(:first-child) {
+  margin-top: var(--space-lg);
+}
+
+.db-theory p,
+.db-theory li,
+.db-section-header p,
+.execution-plan p {
+  color: var(--text-secondary);
+}
+
+.db-theory ol {
+  padding-left: var(--space-lg);
+}
+
+.db-theory li {
+  margin-bottom: var(--space-sm);
+}
+
+.syntax-box {
+  display: block;
+  padding: var(--space-md);
+  color: var(--accent-cyan);
+  background: rgba(0, 0, 0, 0.24);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  white-space: normal;
+}
+
+.db-table-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.db-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.db-section-header.compact {
+  margin-bottom: var(--space-md);
+}
+
+.db-section-header h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-xl);
+}
+
+.db-query-editor {
+  width: 100%;
+  min-height: 140px;
+  padding: var(--space-lg);
+  color: var(--accent-emerald);
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: var(--font-size-base);
+  resize: vertical;
+  outline: none;
+  margin-bottom: var(--space-md);
+}
+
+.db-query-editor:focus {
+  border-color: rgba(78, 222, 163, 0.4);
+  box-shadow: 0 0 0 3px rgba(78, 222, 163, 0.08);
+}
+
+.example-query-list {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.example-query {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 10px 12px;
+  color: var(--text-secondary);
+  text-align: left;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: 'Consolas', 'Monaco', monospace;
+  transition: all var(--transition-base);
+}
+
+.example-query:hover {
+  color: var(--text-primary);
+  border-color: rgba(78, 222, 163, 0.3);
+  background: rgba(78, 222, 163, 0.08);
+}
+
+.db-output-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.db-table-wrap {
+  overflow-x: auto;
+}
+
+.db-data-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+}
+
+.db-data-table th,
+.db-data-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.db-data-table th {
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.db-data-table.result th {
+  color: var(--accent-emerald);
+}
+
+.db-error {
+  padding: var(--space-lg);
+  color: var(--accent-rose);
+  background: rgba(255, 180, 171, 0.08);
+  border: 1px solid rgba(255, 180, 171, 0.24);
+  border-radius: var(--radius-lg);
+}
+
+.execution-plan {
+  margin-top: var(--space-lg);
+  padding: var(--space-lg);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+
+.execution-plan h3 {
+  margin-bottom: var(--space-sm);
+}
+
+.execution-plan ol {
+  padding-left: var(--space-lg);
+}
+
+.execution-plan li {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.db-viva-section h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.db-viva-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.db-viva-grid div {
+  padding: var(--space-lg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.db-viva-grid h3 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-sm);
+}
+
+.db-viva-grid p {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 980px) {
+  .db-lab-hero,
+  .db-section-header {
+    flex-direction: column;
+  }
+
+  .db-lab-summary {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .db-content-grid,
+  .db-output-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .db-viva-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .db-lab-hero h1 {
+    font-size: var(--font-size-4xl);
+  }
+
+  .db-lab-summary,
+  .db-viva-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .db-theory,
+  .db-simulator,
+  .db-table-card,
+  .db-result-card,
+  .db-viva-section,
+  .db-lab-hero {
+    padding: var(--space-lg);
+  }
+}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Lock, Unlock, Clock, FileText, Image, Video, File, Tag, User } from 'lucide-react';
+import { Lock, Unlock, Clock, FileText, Image, Video, File, Tag } from 'lucide-react';
 import type { Card } from '../../types';
 import { useNavigate } from 'react-router-dom';
 import './CardPreview.css';

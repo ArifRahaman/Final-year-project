@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { usersAPI, cardsAPI, accessAPI } from '../services/api';
-import type { DashboardStats, Card, AccessRequest as AccessReq } from '../types';
+import { usersAPI, cardsAPI } from '../services/api';
+import type { DashboardStats, Card } from '../types';
 import CardPreview from '../components/Cards/CardPreview';
 import {
   LayoutDashboard, BookOpen, Clock, Users, CheckCircle2,

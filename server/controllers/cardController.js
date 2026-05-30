@@ -4,18 +4,27 @@ const path = require('path');
 const fs = require('fs');
 const https = require('https');
 const http = require('http');
+const { PDFParse } = require('pdf-parse');
 
-const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://localhost:8001';
+
+const extractPdfText = async (filePath) => {
+  const buffer = fs.readFileSync(filePath);
+  const parser = new PDFParse({ data: buffer });
+  try {
+    const data = await parser.getText();
+    return data.text || '';
+  } finally {
+    await parser.destroy();
+  }
+};
 
 // Fire-and-forget: extract text from PDFs and send to AI service for embedding
 const ingestPdfsAsync = async (cardId, files) => {
   for (const file of files) {
     if (file.mimetype !== 'application/pdf') continue;
     try {
-      const pdfParse = require('pdf-parse');
-      const buffer = fs.readFileSync(file.path);
-      const data = await pdfParse(buffer);
-      const text = data.text;
+      const text = await extractPdfText(file.path);
       if (!text || text.trim().length === 0) continue;
 
       // POST to AI service
@@ -29,8 +38,23 @@ const ingestPdfsAsync = async (cardId, files) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }
       }, (resp) => {
-        resp.on('data', () => {});
-        resp.on('end', () => console.log(`✅ Ingested PDF: ${file.originalname} for card ${cardId}`));
+        let responseBody = '';
+        resp.on('data', (chunk) => {
+          responseBody += chunk;
+        });
+        resp.on('end', async () => {
+          if (resp.statusCode >= 200 && resp.statusCode < 300) {
+            try {
+              const result = JSON.parse(responseBody);
+              await Card.findByIdAndUpdate(cardId, { embeddingsReady: result.chunks_stored > 0 });
+              console.log(`✅ Ingested PDF: ${file.originalname} for card ${cardId} (${result.chunks_stored} chunks)`);
+            } catch (e) {
+              console.log(`✅ Ingested PDF: ${file.originalname} for card ${cardId}`);
+            }
+          } else {
+            console.warn(`⚠️  PDF ingest failed for ${file.originalname}: ${resp.statusCode} ${responseBody}`);
+          }
+        });
       });
       req.on('error', (e) => console.warn(`⚠️  PDF ingest failed: ${e.message}`));
       req.write(body);

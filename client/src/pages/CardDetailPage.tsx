@@ -31,7 +31,7 @@ export default function CardDetailPage() {
   const [activeTab, setActiveTab] = useState<Tab>('resources');
 
   // Quick Upload State
-  const fileInputRef = React.useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploadingFile, setUploadingFile] = useState(false);
 
   useEffect(() => {

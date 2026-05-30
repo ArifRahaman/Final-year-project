@@ -1,6 +1,6 @@
 """AI Chat route handlers."""
 from fastapi import APIRouter, HTTPException
-from models.schemas import ChatRequest, ChatResponse, IngestRequest, IngestResponse, EmbeddingRequest, HealthResponse
+from models.schemas import ChatRequest, ChatResponse, IngestRequest, IngestResponse, HealthResponse
 from services.rag_service import rag_service
 
 router = APIRouter(prefix="/api/ai", tags=["AI"])
@@ -29,7 +29,7 @@ async def chat(request: ChatRequest):
 
 @router.post("/ingest", response_model=IngestResponse)
 async def ingest_pdf(request: IngestRequest):
-    """Ingest extracted PDF text: chunk, embed, and store for semantic search."""
+    """Ingest extracted PDF text for one card."""
     try:
         if not request.text or len(request.text.strip()) < 50:
             return IngestResponse(status="skipped", chunks_stored=0, card_id=request.card_id)
@@ -42,6 +42,16 @@ async def ingest_pdf(request: IngestRequest):
     except Exception as e:
         print(f"Ingest error: {e}")
         raise HTTPException(status_code=500, detail=f"Ingestion error: {str(e)}")
+
+
+@router.get("/cards/{card_id}/ingestion-status")
+async def ingestion_status(card_id: str):
+    """Return stored PDF chunks for one card."""
+    try:
+        return await rag_service.get_ingestion_status(card_id)
+    except Exception as e:
+        print(f"Ingestion status error: {e}")
+        raise HTTPException(status_code=500, detail=f"Status error: {str(e)}")
 
 
 @router.get("/health", response_model=HealthResponse)

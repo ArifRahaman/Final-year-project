@@ -12,6 +12,9 @@ import CreateCardPage from './pages/CreateCardPage';
 import EditCardPage from './pages/EditCardPage';
 import MyLibraryPage from './pages/MyLibraryPage';
 import AccessRequestsPage from './pages/AccessRequestsPage';
+import VirtualLabsPage from './pages/VirtualLabsPage';
+import OSSchedulingLab from './pages/labs/OSSchedulingLab';
+import DatabaseQueryLab from './pages/labs/DatabaseQueryLab';
 
 function ProtectedRoute({ children, role }: { children: React.ReactNode; role?: string }) {
   const { isAuthenticated, isLoading, user } = useAuth();
@@ -56,6 +59,9 @@ function AppRoutes() {
         <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
         <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
         <Route path="/browse" element={<BrowsePage />} />
+        <Route path="/labs" element={<VirtualLabsPage />} />
+        <Route path="/labs/os-scheduling" element={<OSSchedulingLab />} />
+        <Route path="/labs/db-query" element={<DatabaseQueryLab />} />
         <Route path="/cards/:id" element={<ProtectedRoute><CardDetailPage /></ProtectedRoute>} />
         <Route path="/create-card" element={<ProtectedRoute role="teacher"><CreateCardPage /></ProtectedRoute>} />
         <Route path="/edit-card/:id" element={<ProtectedRoute role="teacher"><EditCardPage /></ProtectedRoute>} />

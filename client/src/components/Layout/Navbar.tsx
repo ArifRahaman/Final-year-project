@@ -2,7 +2,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import {
   GraduationCap, LogOut, Menu, X, LayoutDashboard,
-  BookOpen, PlusCircle, Library, ClipboardList, Search
+  BookOpen, PlusCircle, Library, ClipboardList, Search, Cpu
 } from 'lucide-react';
 import { useState } from 'react';
 import './Navbar.css';
@@ -25,12 +25,16 @@ export default function Navbar() {
       { to: '/create-card', label: 'Create Card', icon: <PlusCircle size={18} /> },
       { to: '/access-requests', label: 'Requests', icon: <ClipboardList size={18} /> },
       { to: '/browse', label: 'Browse', icon: <Search size={18} /> },
+      { to: '/labs', label: 'Virtual Labs', icon: <Cpu size={18} /> },
     ] : [
       { to: '/dashboard', label: 'Dashboard', icon: <LayoutDashboard size={18} /> },
       { to: '/browse', label: 'Browse Cards', icon: <BookOpen size={18} /> },
       { to: '/my-library', label: 'My Library', icon: <Library size={18} /> },
+      { to: '/labs', label: 'Virtual Labs', icon: <Cpu size={18} /> },
     ]
-  ) : [];
+  ) : [
+    { to: '/labs', label: 'Virtual Labs', icon: <Cpu size={18} /> },
+  ];
 
   return (
     <nav className="navbar glass-strong" id="main-navbar">
@@ -47,7 +51,11 @@ export default function Navbar() {
             <Link
               key={link.to}
               to={link.to}
-              className={`nav-link ${location.pathname === link.to ? 'active' : ''}`}
+              className={`nav-link ${
+                link.to === '/labs'
+                  ? location.pathname.startsWith('/labs') ? 'active' : ''
+                  : location.pathname === link.to ? 'active' : ''
+              }`}
               onClick={() => setMobileOpen(false)}
             >
               {link.icon}
