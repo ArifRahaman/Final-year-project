@@ -31,3 +31,8 @@ pnpm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Unused local folders
+frontend/
+backend/
+stitch_educards_edtech_platform/
